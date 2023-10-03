@@ -7,8 +7,12 @@ class User(models.Model):
     email = models.EmailField()
     nickname = models.CharField(max_length=100)
 
+    def __str__(self):
+        return f"{self.name} {self.surname}"
+
 
 class Task(models.Model):
+    is_done = models.BooleanField(default=False)
     title = models.CharField(max_length=100)
     add_time = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField()
