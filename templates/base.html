@@ -3,10 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>
         {% block title %}{% endblock %}
     </title>
 </head>
+<nav>
+    <span id="buttons">
+        <a id="homepage-sign" href="{% url 'homepage' %}">HOMEPAGE</a>
+        <a id="app-sign" href="{% url 'homepage' %}">To Do APP</a>
+    </span>
+    <span id="log">
+        <a href="{% url 'homepage' %}">Login</a>
+    </span>
+</nav>
 <body>
 {% block content %}{% endblock %}
 </body>
