@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="homepage"),
-    path('todolist', views.todolist, name="task-list"),
+    path('todolist', views.TodolistView.as_view(), name="task-list"),
     path('todolist/<slug:slug>', views.single_post, name="single-task")
 ]

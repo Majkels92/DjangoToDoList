@@ -1,4 +1,17 @@
 {% extends "base.html" %}
 
 {% block title %}To Do List{% endblock %}
-{% block content %} {% endblock %}
+
+{% block content %}
+    <div>
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task.title }}</li>
+                <li>{{ task.title }}</li>
+                <li>{{ task.title }}</li>
+                <li>{{ task.title }}</li>
+                <li>{{ task.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
