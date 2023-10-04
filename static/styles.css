@@ -59,3 +59,14 @@ nav ul li:hover {
     background-color: darkcyan;
     border-radius: 15px;
 }
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 80%;
+    background-color: darkgrey;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding: 20px 10px 20px;
+}
