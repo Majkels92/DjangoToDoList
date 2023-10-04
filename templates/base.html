@@ -3,21 +3,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>
         {% block title %}{% endblock %}
     </title>
 </head>
-<nav>
-    <span id="buttons">
-        <a id="homepage-sign" href="{% url 'homepage' %}">HOMEPAGE</a>
-        <a id="app-sign" href="{% url 'task-list' %}">To Do APP</a>
-    </span>
-    <span id="log">
-        <a href="{% url 'homepage' %}">Login</a>
-    </span>
-</nav>
+
+
+
 <body>
+<nav>
+    <div>
+        <a id="logo" href="{% url 'homepage' %}">HOME</a>
+        <a id="loging panel" href="{% url 'homepage' %}">Login</a>
+    </div>
+    <div class = "navigation-items">
+        <ul>
+            <li><a href="{% url 'task-list' %}">To Do APP</a></li>
+            <li><a href="{% url 'task-list' %}">ABOUT</a></li>
+        </ul>
+    </div>
+</nav>
 {% block content %}{% endblock %}
 </body>
 </html>

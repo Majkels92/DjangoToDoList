@@ -1,53 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto+Condensed:wght@300&display=swap');
 
-
-html {
-    font-family:'Roboto Condensed', sans-serif;
+* {
+    box-sizing: border-box;
 }
 
 body {
     background-color: bisque;
-    margin: 0;
+}
+nav {
+    background: darkolivegreen;
+    height: 80px;
+    width: 100%;
+    border-radius: 15px;
+    overflow-x: auto;
 }
 
-nav {
-    background-color: darkolivegreen;
-    width: 100%;
-    border-radius: 10px;
-    font-weight: 1000;
+nav div {
+    display: inline-block;
 }
 
 a {
+    font-family:'Roboto Condensed', sans-serif;
     text-decoration: none;
-    border-radius: 12px;
-    padding: 0 5%;
     color: black;
+    font-weight: bold;
 }
 
-#app-sign:active,
-#app-sign:hover {
-    background-color: darkcyan;
+.navigation-items {
+    float: right;
 }
 
-#homepage-sign {
-    font-size: 3rem;
-    padding: 0 1%;
-}
-
-#app-sign {
-    font-size: 1.5rem;
+#logo {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Pixelify Sans', cursive;
+    line-height: 80px;
+    padding: 10px;
     margin: 5px;
 }
 
-#log {
+nav ul {
     float: right;
-    padding: 10px;
-    border-radius: 12px;
-    font-size: large;
-    margin: 15px;
+    list-style: none;
+    margin-right: 20px;
+    font-size: 1.5rem;
 }
 
-#log:active,
-#log:hover {
+nav ul li {
+    display: inline-block;
+    margin: 0 30px;
+    padding: 0 20px 0;
+}
+
+nav ul li:hover {
     background-color: darkcyan;
+    border-radius: 15px;
 }
