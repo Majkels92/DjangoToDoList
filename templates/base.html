@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block static %}
+    {% endblock %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>
         {% block title %}{% endblock %}
@@ -21,12 +23,12 @@
     <div class = "navigation-items">
         <ul>
             <li><a href="{% url 'task-list' %}">To Do APP</a></li>
-            <li><a href="{% url 'task-list' %}">ABOUT</a></li>
+            <li><a href="{% url 'about-page' %}">ABOUT</a></li>
         </ul>
     </div>
 </nav>
-<div class="content">
+
 {% block content %}{% endblock %}
-</div>
+
 </body>
 </html>

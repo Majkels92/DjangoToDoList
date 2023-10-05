@@ -1,6 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Homepage{% endblock %}
+{% block static %}
+    <link rel="stylesheet" href="{% static "todolist/about.css" %}">
+{% endblock %}
+
+{% block title %}About{% endblock %}
+
 {% block content %}
-
+    <div class="content">
+        <p>If u want to learn more about my portfolio, please visit my gitub:</p>
+        <a href="https://github.com/Majkels92">Michał Skowroński GITHUB Repository</a>
+    </div>
 {% endblock %}

@@ -1,17 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
+
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'todolist/todolist.css' %}">
+{% endblock %}
 
 {% block title %}To Do List{% endblock %}
 
 {% block content %}
-    <div>
-        <ul>
+    <div class="content">
+        <ol class="tasks">
             {% for task in tasks %}
                 <li>{{ task.title }}</li>
                 <li>{{ task.title }}</li>
-                <li>{{ task.title }}</li>
-                <li>{{ task.title }}</li>
-                <li>{{ task.title }}</li>
             {% endfor %}
-        </ul>
+        </ol>
     </div>
 {% endblock %}

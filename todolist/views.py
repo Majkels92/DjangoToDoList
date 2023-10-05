@@ -5,6 +5,10 @@ from .models import Task, User
 # Create your views here.
 
 
+def about(request):
+    return render(request, "todolist/about.html")
+
+
 def index(request):
     return render(request, "todolist/homepage.html")
 

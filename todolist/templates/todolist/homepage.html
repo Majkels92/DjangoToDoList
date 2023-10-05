@@ -1,18 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'todolist/homepage.css' %}">
+{% endblock %}
 
 {% block title %}Homepage{% endblock %}
 {% block content %}
-    <div>
-<p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-       =)<p><p>WELCOME - It's TO DO APP =)<p>        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-        <p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p><p>WELCOME - It's TO DO APP =)<p>
-
-
-
+    <div class="content">
+        <p>WELCOME - It's TO DO APP =)<p>
+        <p>Please log in to start using all features</p>
+        <p>Enjoy and good luck :)</p>
     </div>
 {% endblock %}
