@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from .models import Task, User
 from datetime import datetime, timezone
@@ -20,6 +20,14 @@ def about(request):
 
 def index(request):
     return render(request, "todolist/homepage.html")
+
+
+def delete_task(request, task_id):
+    if request.method == "POST":
+        task = Task.objects.get(id=task_id)
+        task.delete()
+
+    return HttpResponseRedirect("/todolist")
 
 
 # class TodolistView(ListView):
