@@ -20,6 +20,8 @@ from . import views
 urlpatterns = [
     path('', views.index, name="homepage"),
     path('about', views.about, name="about-page"),
-    path('todolist', views.TodolistView.as_view(), name="task-list"),
-    path('todolist/<slug:slug>', views.single_post, name="single-task")
+    path('todolist', views.task_list, name="task-list"),
+    # path('todolist', views.TodolistView.as_view(), name="task-list"),
+    path('todolist/<slug:slug>', views.SinglePostView.as_view(), name="single-task")
+    # path('todolist/<slug:slug>', views.single_post, name="single-task")
 ]

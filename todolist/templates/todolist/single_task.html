@@ -1,4 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Post Detail{% endblock %}
-{% block content %} {% endblock %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'todolist/single_task.css' %}">
+{% endblock %}
+
+{% block title %}
+    {{ task.title }}{% endblock %}
+{% block content %}
+    <div class="content">
+
+        <h2><b>{{ task.title|upper }}</b></h2>
+        <p>ADD DATE: <b>{{ task.add_time|date:'d.m.Y, H:i' }}</b></p>
+        <p>DEADLINE: <b>{{ task.deadline|date:'d.m.Y, H:i' }}</b></p>
+        <h4>DESCRIPTION</h4>
+        <p>{{ task.description }}</p>
+    </div>
+
+{% endblock %}
