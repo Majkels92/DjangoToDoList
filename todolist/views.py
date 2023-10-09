@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from .models import Task, User
 from datetime import datetime, timezone
 from django.utils.timezone import localdate
+from .forms import TaskForm
 # Create your views here.
 
 
@@ -58,3 +59,14 @@ class SinglePostView(DetailView):
     model = Task
     template_name = "todolist/single_task.html"
     context_object_name = "task"
+
+
+def add_task(request):
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/todolist")
+    else:
+        form = TaskForm()
+    return render(request, "todolist/add_task.html", {"form": form})

@@ -1,4 +1,5 @@
 from django.db import models
+from autoslug import AutoSlugField
 
 
 class User(models.Model):
@@ -17,5 +18,5 @@ class Task(models.Model):
     add_time = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user")
-    slug = models.SlugField()
+    slug = AutoSlugField(populate_from='title')
     description = models.TextField()

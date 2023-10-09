@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'todolist/single_task.css' %}">
+{% endblock %}
+
+{% block title %}
+    Add Task
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="actions-mn">
+            <a href="{% url "task-list" %}">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"></path>
+                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"></path>
+                    </svg>
+                    BACK
+                </button>
+            </a>
+        </div>
+        <form method="post" class="form" action="{% url 'add-task' %}">
+            {% csrf_token %}
+            <p>Title: {{ form.title }} {{ form.title.errors }}</p>
+            <p>Deadline: {{ form.deadline }} {{ form.deadline.errors }}</p>
+            <p>User: {{ form.user }} {{ form.user.errors }}</p>
+            <p>Description: {{ form.description }} {{ form.description.errors }}</p>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

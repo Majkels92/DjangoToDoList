@@ -10,7 +10,6 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ["title", "deadline", "user", "slug", "description"]
+    list_display = ["title", "deadline", "user", "description"]
     exclude = ["is_done"]
-    prepopulated_fields = {"slug": ("title",)}
 
