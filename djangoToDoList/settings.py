@@ -112,8 +112,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-DATETIME_INPUT_FORMATS = ["d.m.Y, H:i"]
+DATE_INPUT_FORMATS = ["%d.%m.%Y"]
+TIME_INPUT_FORMATS = ["%H:%M"]
+DATETIME_INPUT_FORMATS = ["%d.%m.%Y %H:%M"]
+
 USE_L10N = False
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
