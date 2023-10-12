@@ -1,0 +1,53 @@
+.content form {
+    width: 60%;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-names,
+.form-fields {
+    padding: 2px;
+}
+
+.form-fields {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-fields input,
+.form-fields textarea,
+.form-fields select {
+    border-radius: 5px;
+    padding: 3px;
+    background-color: #ffffe3;
+}
+
+#title input {
+    width: 80%;
+}
+
+#deadline input {
+    width: 30%;
+}
+
+#user-selection select {
+    width: 60%;
+}
+
+
+#description textarea {
+    width: 100%;
+}
+
+.form-names {
+    text-align: left;
+}
+
+button {
+    margin: 8px;
+}

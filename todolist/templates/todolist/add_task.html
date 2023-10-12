@@ -3,6 +3,7 @@
 
 {% block static %}
     <link rel="stylesheet" href="{% static 'todolist/single_task.css' %}">
+    <link rel="stylesheet" href="{% static 'todolist/form_style.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -21,14 +22,36 @@
                 </button>
             </a>
         </div>
+        <div class="form-container">
         <form method="post" class="form" action="{% url 'add-task' %}">
             {% csrf_token %}
-            <p>Title: {{ form.title }} {{ form.title.errors }}</p>
-            <p>Deadline: {{ form.deadline }} {{ form.deadline.errors }}</p>
-            <p>User: {{ form.user }} {{ form.user.errors }}</p>
-            <p>Description: {{ form.description }} {{ form.description.errors }}</p>
+                <div class="form-names">
+                    Title:
+                </div>
+                <div class="form-fields" id="title">
+                    {{ form.title }} {{ form.title.errors }}
+                </div>
+                <div class="form-names">
+                    Deadline:
+                </div>
+                <div class="form-fields" id="deadline">
+                    {{ form.deadline }} {{ form.deadline.errors }}
+                </div>
+                <div class="form-names">
+                    User:
+                </div>
+                <div class="form-fields" id="user-selection">
+                    {{ form.user }} {{ form.user.errors }}
+                </div>
+                <div class="form-names">
+                    Description:
+                </div>
+                <div class="form-fields" id="description">
+                    {{ form.description }} {{ form.description.errors }}
+                </div>
             <button type="submit">Submit</button>
         </form>
+        </div>
     </div>
 
 {% endblock %}
