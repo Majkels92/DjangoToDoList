@@ -25,6 +25,7 @@
     border-radius: 5px;
     padding: 3px;
     background-color: #ffffe3;
+    border: 1px solid green;
 }
 
 #title input {
@@ -48,6 +49,15 @@
     text-align: left;
 }
 
-button {
+#submit-form{
     margin: 8px;
+    padding: 10px;
+    background-color: burlywood;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid green;
+}
+
+#submit-form:hover {
+    background-color: #4CAF50;
 }
