@@ -6,6 +6,7 @@ from .models import Task, User
 from datetime import datetime, timezone
 from django.utils.timezone import localdate
 from .forms import TaskForm
+from django.utils.text import slugify
 # Create your views here.
 
 
@@ -78,6 +79,7 @@ def edit_task(request, slug):
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
+            task.slug = slugify(form["title"].value())
             form.save()
             return HttpResponseRedirect("/todolist/task/" + task.slug)
         return render(request, "todolist/edit_task.html", {"form": form, "task": task})

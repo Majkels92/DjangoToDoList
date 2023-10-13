@@ -113,8 +113,8 @@ USE_I18N = True
 USE_TZ = True
 
 DATE_INPUT_FORMATS = ["%d.%m.%Y"]
-TIME_INPUT_FORMATS = ["%H:%M"]
-DATETIME_INPUT_FORMATS = ["%d.%m.%Y %H:%M"]
+TIME_INPUT_FORMATS = ["%H:%M", "%H"]
+DATETIME_INPUT_FORMATS = ["%d.%m.%Y %H:%M", "%d.%m.%Y %H"]
 
 USE_L10N = False
 

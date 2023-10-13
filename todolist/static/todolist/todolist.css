@@ -70,7 +70,6 @@ button {
     border-radius: 15px;
     background-color: #90b6ff;
     font-family: 'Dela Gothic One', cursive;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     cursor: pointer;
 }
 
