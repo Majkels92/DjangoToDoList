@@ -25,30 +25,19 @@
         <div class="form-container">
         <form method="post" class="form" action="{% url 'add-task' %}">
             {% csrf_token %}
+            {% for field in form %}
                 <div class="form-names">
-                    Title:
+                    {{ field.label_tag }}
                 </div>
-                <div class="form-fields" id="title">
-                    {{ form.title }} {{ form.title.errors }}
+                {% if field == form.deadline %}
+                    <div class="form-fields" id="deadline">
+                {% else %}
+                    <div class="form-fields">
+                {% endif %}
+                    {{ field }}
+                    {{ field.errors}}
                 </div>
-                <div class="form-names">
-                    Deadline:
-                </div>
-                <div class="form-fields" id="deadline">
-                    {{ form.deadline }} {{ form.deadline.errors }}
-                </div>
-                <div class="form-names">
-                    User:
-                </div>
-                <div class="form-fields" id="user-selection">
-                    {{ form.user }} {{ form.user.errors }}
-                </div>
-                <div class="form-names">
-                    Description:
-                </div>
-                <div class="form-fields" id="description">
-                    {{ form.description }} {{ form.description.errors }}
-                </div>
+            {% endfor %}
             <button id="submit-form" type="submit">Submit</button>
         </form>
         </div>

@@ -28,20 +28,19 @@
     border: 1px solid green;
 }
 
-#title input {
-    width: 80%;
+.form-fields input {
+    width: 100%;
 }
 
 #deadline input {
     width: 30%;
 }
 
-#user-selection select {
-    width: 60%;
+.form-fields select {
+    width: 50%;
 }
 
-
-#description textarea {
+.form-fields textarea {
     width: 100%;
 }
 
@@ -60,4 +59,9 @@
 
 #submit-form:hover {
     background-color: #4CAF50;
+}
+
+.errorlist {
+    list-style: none;
+    color: red;
 }
