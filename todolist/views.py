@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.urls import reverse
@@ -74,12 +74,13 @@ def add_task(request):
 
 
 def edit_task(request, slug):
-    task = Task.objects.get(slug=slug)
+    task = get_object_or_404(Task, slug=slug)
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("/todolist/task/" + task.slug)
+        return render(request, "todolist/edit_task.html", {"form": form, "task": task})
     else:
         form = TaskForm(instance=task)
         return render(request, "todolist/edit_task.html", {"form": form,
