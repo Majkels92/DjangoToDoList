@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
+from django.urls import reverse
 from .models import Task, User
 from datetime import datetime, timezone
 from django.utils.timezone import localdate
@@ -70,3 +71,16 @@ def add_task(request):
     else:
         form = TaskForm()
     return render(request, "todolist/add_task.html", {"form": form})
+
+
+def edit_task(request, slug):
+    task = Task.objects.get(slug=slug)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/todolist/task/" + task.slug)
+    else:
+        form = TaskForm(instance=task)
+        return render(request, "todolist/edit_task.html", {"form": form,
+                                                           "task": task})
