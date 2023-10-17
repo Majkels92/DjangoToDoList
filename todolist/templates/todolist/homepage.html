@@ -7,6 +7,11 @@
 
 {% block title %}Homepage{% endblock %}
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
     <div class="content">
         <p>WELCOME - It's TO DO APP =)<p>
         <p>Please log in to start using all features</p>

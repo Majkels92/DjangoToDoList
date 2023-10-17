@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from django.utils.timezone import localdate
 from .forms import TaskForm, CustomUserCreationForm
 from django.utils.text import slugify
+from django.contrib import messages
 # Create your views here.
 
 
@@ -94,7 +95,8 @@ def register_user(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/todolist")
+            messages.success(request, f'Account created for {form.cleaned_data.get("username")}')
+            return HttpResponseRedirect("/")
     else:
         form = CustomUserCreationForm()
     return render(request, "todolist/register.html", {"form": form})
