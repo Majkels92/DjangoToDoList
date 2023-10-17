@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.urls import reverse
-from .models import Task, User
+from .models import Task, CustomUser
 from datetime import datetime, timezone
 from django.utils.timezone import localdate
 from .forms import TaskForm
