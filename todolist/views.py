@@ -5,7 +5,7 @@ from django.urls import reverse
 from .models import Task, CustomUser
 from datetime import datetime, timezone
 from django.utils.timezone import localdate
-from .forms import TaskForm
+from .forms import TaskForm, CustomUserCreationForm
 from django.utils.text import slugify
 # Create your views here.
 
@@ -87,3 +87,15 @@ def edit_task(request, slug):
         form = TaskForm(instance=task)
         return render(request, "todolist/edit_task.html", {"form": form,
                                                            "task": task})
+
+
+def register_user(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/todolist")
+    else:
+        form = CustomUserCreationForm()
+    return render(request, "todolist/register.html", {"form": form})
+
