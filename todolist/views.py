@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic import ListView, DetailView
-from django.urls import reverse
+from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse, reverse_lazy
 from .models import Task, CustomUser
 from datetime import datetime, timezone
 from django.utils.timezone import localdate
 from .forms import TaskForm, CustomUserCreationForm
 from django.utils.text import slugify
-from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 
 
@@ -90,14 +90,20 @@ def edit_task(request, slug):
                                                            "task": task})
 
 
-def register_user(request):
-    if request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'Account created for {form.cleaned_data.get("username")}')
-            return HttpResponseRedirect("/")
-    else:
-        form = CustomUserCreationForm()
-    return render(request, "todolist/register.html", {"form": form})
+# def register_user(request):
+#     if request.method == "POST":
+#         form = CustomUserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, f'Account created for {form.cleaned_data.get("username")}')
+#             return HttpResponseRedirect("/")
+#     else:
+#         form = CustomUserCreationForm()
+#     return render(request, "todolist/register.html", {"form": form})
+
+class RegisterUserView(SuccessMessageMixin, CreateView):
+    template_name = "todolist/register.html"
+    success_message = "Your profile was created successfully"
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy("homepage")
 
