@@ -10,6 +10,7 @@ from .forms import TaskForm, CustomUserCreationForm
 from django.utils.text import slugify
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import views as auth_views
+from django.contrib import messages
 # Create your views here.
 
 
@@ -115,10 +116,13 @@ class LoginUserView(SuccessMessageMixin, auth_views.LoginView):
     template_name = "todolist/login.html"
 
 
-class LogoutUserView(SuccessMessageMixin, auth_views.LogoutView):
-    success_message = "You have successfully logged out!"
+class LogoutUserView(auth_views.LogoutView):
     template_name = "todolist/homepage.html.html"
 
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.INFO, 'Successfully logged out.')
+        return response
 
 def profile(request):
     return render(request, "todolist/profile.html")
