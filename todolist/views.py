@@ -1,3 +1,4 @@
+import django.contrib.auth.forms
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView
@@ -8,6 +9,7 @@ from django.utils.timezone import localdate
 from .forms import TaskForm, CustomUserCreationForm
 from django.utils.text import slugify
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth import views as auth_views
 # Create your views here.
 
 
@@ -103,7 +105,20 @@ def edit_task(request, slug):
 
 class RegisterUserView(SuccessMessageMixin, CreateView):
     template_name = "todolist/register.html"
-    success_message = "Your profile was created successfully"
+    success_message = "Your profile was created successfully!"
     form_class = CustomUserCreationForm
     success_url = reverse_lazy("homepage")
 
+
+class LoginUserView(SuccessMessageMixin, auth_views.LoginView):
+    success_message = "You have successfully logged in!"
+    template_name = "todolist/login.html"
+
+
+class LogoutUserView(SuccessMessageMixin, auth_views.LogoutView):
+    success_message = "You have successfully logged out!"
+    template_name = "todolist/homepage.html.html"
+
+
+def profile(request):
+    return render(request, "todolist/profile.html")

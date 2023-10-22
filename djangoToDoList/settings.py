@@ -133,5 +133,5 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = 'todolist.CustomUser'
-LOGIN_REDIRECT_URL = "task-list"
+LOGIN_REDIRECT_URL = "homepage"
 LOGOUT_REDIRECT_URL = "homepage"

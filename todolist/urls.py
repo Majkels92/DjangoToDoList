@@ -25,5 +25,8 @@ urlpatterns = [
     path('todolist/delete/<int:task_id>', views.delete_task, name="delete-task"),
     path('todolist/add-task', views.add_task, name="add-task"),
     path('todolist/update/<slug:slug>', views.edit_task, name="update-task"),
-    path('register', views.RegisterUserView.as_view(), name="register")
+    path('register', views.RegisterUserView.as_view(), name="register"),
+    path('login', views.LoginUserView.as_view(), name="login"),
+    path('logout', views.LogoutUserView.as_view(), name="logout"),
+    path('profile', views.profile, name="profile")
 ]

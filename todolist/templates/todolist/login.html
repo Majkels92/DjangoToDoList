@@ -2,12 +2,11 @@
 {% load static %}
 
 {% block static %}
-    <link rel="stylesheet" href="{% static 'todolist/form_style.css' %}">
+    <link rel="stylesheet" href="{% static 'todolist/login_form_style.css' %}">
 {% endblock %}
 
-{% block title %}
-    Add Task
-{% endblock %}
+{% block title %}Log In{% endblock %}
+
 {% block content %}
     <div class="content">
         <div class="actions-mn">
@@ -22,24 +21,19 @@
             </a>
         </div>
         <div class="form-container">
-        <form method="post" class="form" action="{% url 'register' %}">
-            {% csrf_token %}
-            {% for field in form %}
-                <div class="form-names">
-                    {{ field.label_tag }}
-                </div>
-                {% if field == form.deadline %}
-                    <div class="form-fields" id="deadline">
-                {% else %}
-                    <div class="form-fields">
-                {% endif %}
-                    {{ field }}
-                    {{ field.errors}}
-                </div>
-            {% endfor %}
-            <button id="submit-form" type="submit">Submit</button>
-        </form>
+            <form method="post" class="form" action="{% url 'login' %}">
+                {% csrf_token %}
+            <p id="login-title">Please Log In to continue using App. </p>
+                {% for field in form %}
+                    <div class="form-fields-container">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {{ field.errors}}
+                    </div>
+                {% endfor %}
+                <button id="submit-form" type="submit">Submit</button>
+            </form>
+            <p id="login-footer">Don't have an account? <a href="{% url "register" %}">Sign Up</a></p>
         </div>
     </div>
-
 {% endblock %}
