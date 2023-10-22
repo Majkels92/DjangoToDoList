@@ -124,5 +124,6 @@ class LogoutUserView(auth_views.LogoutView):
         messages.add_message(request, messages.INFO, 'Successfully logged out.')
         return response
 
+
 def profile(request):
     return render(request, "todolist/profile.html")
