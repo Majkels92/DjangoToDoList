@@ -1,38 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Osmanya&display=swap');
 
 * {
     box-sizing: border-box;
+    font-family: 'Noto Sans Osmanya', sans-serif;
 }
 
 body {
-    background-color: bisque;
+    background-color: #61a8d8;
+    margin: 0;
 }
-nav {
-    background: darkolivegreen;
+.navigation-bar-content {
+    background: #0074d8;
     height: 80px;
     width: 100%;
-    border-radius: 15px;
-    overflow-x: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav div {
-    display: inline-block;
-}
 
-a {
+a.nav-a-link {
     font-family:'Roboto Condensed', sans-serif;
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
 
-.navigation-items {
-    float: right;
-}
-
 #logo {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -42,22 +38,33 @@ a {
     margin: 5px;
 }
 
-nav ul {
-    float: right;
-    list-style: none;
-    margin-right: 20px;
-    font-size: 1.5rem;
+div.navbar-div {
+    margin: 10px;
 }
 
-nav ul li {
-    display: inline-block;
+.nav-ul {
+    list-style: none;
+    font-size: 1.5rem;
+    margin: auto;
+}
+
+.nav-ul li {
+    display: inline-flex;
     margin: 0 30px;
     padding: 0 20px 0;
 }
 
-nav ul li:hover {
-    background-color: darkcyan;
+.nav-ul li:hover {
+    background-color: #bc7bd8;
     border-radius: 15px;
 }
 
+
+#nav-log-btn {
+    font-size: 1.2rem;
+}
+
+#nav-log-btn:hover {
+    color: #bc7bd8;
+}
 

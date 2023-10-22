@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Pixelify+Sans&family=Roboto+Condensed:wght@300&family=Young+Serif&display=swap');
 
 
-.content {
+*.content {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -65,7 +65,7 @@ br {
     justify-content: space-evenly;
 }
 
-button {
+#delete-btn, #detail-btn, #done-btn {
     padding: 10px;
     border-radius: 15px;
     background-color: #90b6ff;
@@ -73,7 +73,7 @@ button {
     cursor: pointer;
 }
 
-svg {
+#btn-icon {
     vertical-align: -2px;
     margin-right: 3px;
 }
@@ -83,11 +83,11 @@ svg {
 }
 
 #delete-btn:hover {
-    background-color: #ff7a5c;
+    background-color: red;
 }
 
 #detail-btn:hover {
-    background-color: #47dfff;
+    background-color: #d87ed5;
 }
 
 .actions-mn {
@@ -96,7 +96,7 @@ svg {
 }
 
 .actions-mn button {
-    padding: 10px;
+    padding: 6px;
     background-color: burlywood;
     border-radius: 10px;
     cursor: pointer;

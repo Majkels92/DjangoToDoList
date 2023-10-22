@@ -29,12 +29,13 @@
             </a>
 
         </div>
-        <h2><b>{{ task.title|upper }}</b></h2>
-        <p>ADD DATE: <b>{{ task.add_time|date:'d.m.Y, H:i' }}</b></p>
-        <p>DEADLINE: <b>{{ task.deadline|date:'d.m.Y, H:i' }}</b></p>
-        <p>SLUG: <b>{{ task.slug }}</b></p>
-        <h4>DESCRIPTION</h4>
-        <p>{{ task.description }}</p>
+        <div class="task-details">
+            <h2>{{ task.title|upper }}</h2>
+            <p>ADD DATE: <b>{{ task.add_time|date:'d.m.Y, H:i' }}</b></p>
+            <p>DEADLINE: <b>{{ task.deadline|date:'d.m.Y, H:i' }}</b></p>
+            <p>Responsible: <b>{{ task.user }}</b></p>
+            <h4>DESCRIPTION</h4>
+            <p>{{ task.description }}</p>
+        </div>
     </div>
-
 {% endblock %}
