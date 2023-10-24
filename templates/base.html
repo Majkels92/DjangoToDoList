@@ -22,17 +22,19 @@
 <nav class="navigation-bar-content">
     <div >
         <a class="nav-a-link" id="logo" href="{% url 'homepage' %}">TDL</a>
-        {%  if user.is_authenticated %}
+        {% if user.is_authenticated %}
             Hello, <a id="nav-log-btn" class="nav-a-link" href="{% url 'profile' %}">{{ user.username }}</a>
             <a id="nav-log-btn" class="nav-a-link" href="{% url "logout" %}">Log Out</a>
         {% else %}
-            <a id="nav-log-btn" class="nav-a-link" href="{% url 'login' %}">Login</a>
+            <a id="nav-log-btn" class="nav-a-link" href="{% url 'login' %}">Log In</a>
             <a id="nav-log-btn" class="nav-a-link" href="{% url 'register' %}">Register</a>
         {% endif %}
     </div>
     <div class="navbar-div">
         <ul class="nav-ul">
+            {% if user.is_authenticated %}
             <li><a class="nav-a-link" href="{% url 'task-list' %}">To Do APP</a></li>
+            {% endif %}
             <li><a class="nav-a-link" href="{% url 'about-page' %}">ABOUT</a></li>
         </ul>
     </div>

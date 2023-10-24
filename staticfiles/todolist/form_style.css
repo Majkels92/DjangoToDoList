@@ -1,0 +1,99 @@
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 70%;
+    background-color: azure;
+    border-radius: 1rem;
+    padding: 20px 10px 20px;
+    text-align: center;
+    display: block;
+    justify-content: center;
+}
+
+.actions-mn {
+    width: 100%;
+    display: flex;
+}
+
+.actions-mn button {
+    padding: 6px;
+    background-color: burlywood;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+
+.actions-mn button:hover {
+    background-color: darkcyan;
+}
+
+.content form {
+    width: 60%;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-names,
+.form-fields {
+    padding: 2px;
+}
+
+.form-fields {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-fields input,
+.form-fields textarea,
+.form-fields select {
+    border-radius: 5px;
+    padding: 3px;
+    background-color: #ffffe3;
+    border: 1px solid green;
+}
+
+.form-fields input {
+    width: 100%;
+}
+
+#deadline input {
+    width: 30%;
+}
+
+.form-fields select {
+    width: 50%;
+}
+
+.form-fields textarea {
+    width: 100%;
+}
+
+.form-names {
+    text-align: left;
+}
+
+#submit-form{
+    margin: 8px;
+    padding: 10px;
+    background-color: burlywood;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid green;
+}
+
+#submit-form:hover {
+    background-color: #4CAF50;
+}
+
+.errorlist {
+    list-style: none;
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Osmanya&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans Osmanya', sans-serif;
+}
+
+body {
+    background-color: #61a8d8;
+    margin: 0;
+}
+.navigation-bar-content {
+    background: #0074d8;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+a.nav-a-link {
+    font-family:'Roboto Condensed', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#logo {
+    font-size: 4rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Pixelify Sans', cursive;
+    line-height: 80px;
+    padding: 10px;
+    margin: 5px;
+}
+
+div.navbar-div {
+    margin: 10px;
+}
+
+.nav-ul {
+    list-style: none;
+    font-size: 1.5rem;
+    margin: auto;
+}
+
+.nav-ul li {
+    display: inline-flex;
+    margin: 0 30px;
+    padding: 0 20px 0;
+}
+
+.nav-ul li:hover {
+    background-color: #bc7bd8;
+    border-radius: 15px;
+}
+
+
+#nav-log-btn {
+    font-size: 1.2rem;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#nav-log-btn:hover {
+    color: #bc7bd8;
+}
+

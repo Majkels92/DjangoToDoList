@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto+Condensed:wght@300&family=Young+Serif&display=swap');
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 80%;
+    background-color: azure;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding: 20px 10px 20px;
+    text-align: center;
+    font-family: 'Young Serif', serif;
+    font-weight: bold;
+}

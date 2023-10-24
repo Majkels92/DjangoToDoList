@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Pixelify+Sans&family=Roboto+Condensed:wght@300&family=Young+Serif&display=swap');
+
+
+*.content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 90%;
+    background-color: azure;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 20px 10px 20px;
+    text-align: center;
+    display: block;
+    justify-content: center;
+}
+
+a {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+br {
+    color: black;
+}
+
+.single-task {
+    display: flex;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    align-items: center;
+}
+
+.table-header {
+    display: flex;
+    padding: 10px;
+}
+
+#title, #title-tb {
+    width: 50%;
+}
+
+#deadline, #deadline-tb {
+    width: 12%;
+    text-align: center;
+}
+
+#countdown, #countdown-tb {
+    width: 10%;
+    text-align: center;
+}
+
+#countdown {
+    color: red;
+}
+
+
+#actions-tb, #actions {
+    width: 30%;
+}
+
+#actions {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#delete-btn, #detail-btn, #done-btn {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #90b6ff;
+    font-family: 'Dela Gothic One', cursive;
+    cursor: pointer;
+}
+
+#btn-icon {
+    vertical-align: -2px;
+    margin-right: 3px;
+}
+
+#done-btn:hover {
+    background-color: #4CAF50;
+}
+
+#delete-btn:hover {
+    background-color: red;
+}
+
+#detail-btn:hover {
+    background-color: #d87ed5;
+}
+
+.actions-mn {
+    width: 100%;
+    display: flex;
+}
+
+.actions-mn button {
+    padding: 6px;
+    background-color: burlywood;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.actions-mn button:hover {
+    background-color: darkcyan;
+}
