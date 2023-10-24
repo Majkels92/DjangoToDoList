@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
 from decouple import config
 from pathlib import Path
 from os import getenv
@@ -26,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = getenv("IS_PRODUCTION", True)
 
 ALLOWED_HOSTS = [
-    getenv("APP_HOST")
+    os.getenv('ALLOWED_HOSTS').split(' ')
 ]
 
 
