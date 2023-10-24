@@ -25,9 +25,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv("IS_PRODUCTION", True)
 
-ALLOWED_HOSTS = [
-    getenv("APP_HOST")
-]
+ALLOWED_HOSTS = ['ms-todolist.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
