@@ -78,9 +78,7 @@ WSGI_APPLICATION = 'djangoToDoList.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        'postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a.frankfurt-postgres.render.com/ms_todolistapp_db',
-        conn_max_age=600)
+    "default": dj_database_url.parse(os.environ.get("postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a.frankfurt-postgres.render.com/ms_todolistapp_db"))
 }
     #     {
     #     'ENGINE': 'django.db.backends.sqlite3',
