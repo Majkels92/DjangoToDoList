@@ -77,10 +77,9 @@ WSGI_APPLICATION = 'djangoToDoList.wsgi.application'
 
 
 if not DEBUG:
-    DATABASES = {"ENGINE": "django.db.backends.postgresql",
-                 'default': dj_database_url.parse(environ.get(
+    DATABASES = {'default': dj_database_url.parse(
                      "postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a"
-                     ".frankfurt-postgres.render.com/ms_todolistapp_db"))}
+                     ".frankfurt-postgres.render.com/ms_todolistapp_db")}
 else:
     DATABASES = {
         'default': {
