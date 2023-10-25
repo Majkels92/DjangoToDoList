@@ -28,7 +28,6 @@ DEBUG = getenv("IS_PRODUCTION", False)
 
 ALLOWED_HOSTS = ['ms-todolist.onrender.com', 'localhost', '127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -73,22 +72,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoToDoList.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-
 if not DEBUG:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get("postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a.frankfurt-postgres.render.com/ms_todolistapp_db"))}
+    DATABASES = {"ENGINE": "django.db.backends.postgresql",
+                 'default': dj_database_url.parse(environ.get(
+                     "postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a"
+                     ".frankfurt-postgres.render.com/ms_todolistapp_db"))}
 else:
     DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': 'db.sqlite3',
-                }
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -108,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -125,7 +123,6 @@ TIME_INPUT_FORMATS = ["%H:%M", "%H"]
 DATETIME_INPUT_FORMATS = ["%d.%m.%Y %H:%M", "%d.%m.%Y %H"]
 
 USE_L10N = False
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
