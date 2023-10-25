@@ -9,7 +9,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from pathlib import Path
-from os import getenv
+from os import getenv, environ
 import dj_database_url
 from dotenv import load_dotenv
 
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'djangoToDoList.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a/ms_todolistapp_db'), conn_max_age=600),
+    'default': dj_database_url.parse(environ.get('postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a/ms_todolistapp_db'), conn_max_age=600),
 
     #     {
     #     'ENGINE': 'django.db.backends.sqlite3',
