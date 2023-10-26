@@ -40,19 +40,6 @@ def delete_task(request, task_id):
     return HttpResponseRedirect("/todolist")
 
 
-# class TodolistView(ListView):
-#     model = Task
-#     template_name = "todolist/todolist.html"
-#     context_object_name = "tasks"
-#
-#     # def get_context_data(self, **kwargs):
-#     #     context = super(TodolistView, self).get_context_data(**kwargs)
-#     #     for task in Task.objects.all():
-#     #         task_obj = Task.objects.get(id=task.id)
-#     #         task.time_left = counting_time(task_obj.deadline)
-#     #     return context
-
-
 @login_required()
 def task_list(request):
     tasks = Task.objects.all().order_by('deadline')
@@ -99,17 +86,6 @@ def edit_task(request, slug):
         return render(request, "todolist/edit_task.html", {"form": form,
                                                            "task": task})
 
-
-# def register_user(request):
-#     if request.method == "POST":
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, f'Account created for {form.cleaned_data.get("username")}')
-#             return HttpResponseRedirect("/")
-#     else:
-#         form = CustomUserCreationForm()
-#     return render(request, "todolist/register.html", {"form": form})
 
 class RegisterUserView(SuccessMessageMixin, CreateView):
     template_name = "todolist/register.html"
