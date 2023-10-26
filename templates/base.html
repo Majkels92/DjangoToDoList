@@ -23,7 +23,7 @@
     <div >
         <a class="nav-a-link" id="logo" href="{% url 'homepage' %}">TDL</a>
         {% if user.is_authenticated %}
-            Hello, <a id="nav-log-btn" class="nav-a-link" href="{% url 'profile' %}">{{ user.username }}</a>
+            Hello, <a id="nav-log-btn" class="nav-a-link" href="{% url 'profile' user.pk %}">{{ user.username }}</a>
             <a id="nav-log-btn" class="nav-a-link" href="{% url "logout" %}">Log Out</a>
         {% else %}
             <a id="nav-log-btn" class="nav-a-link" href="{% url 'login' %}">Log In</a>

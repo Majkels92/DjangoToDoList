@@ -108,5 +108,7 @@ class LogoutUserView(auth_views.LogoutView):
         return response
 
 
-def profile(request):
-    return render(request, "todolist/profile.html")
+class UserProfileView(SinglePostView, LoginRequiredMixin):
+    template_name = "todolist/profile.html"
+    context_object_name = "user"
+    model = CustomUser
