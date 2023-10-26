@@ -11,6 +11,8 @@ from django.utils.text import slugify
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import views as auth_views
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
@@ -29,6 +31,7 @@ def index(request):
     return render(request, "todolist/homepage.html")
 
 
+@login_required()
 def delete_task(request, task_id):
     if request.method == "POST":
         task = Task.objects.get(id=task_id)
@@ -49,6 +52,8 @@ def delete_task(request, task_id):
 #     #         task.time_left = counting_time(task_obj.deadline)
 #     #     return context
 
+
+@login_required()
 def task_list(request):
     tasks = Task.objects.all().order_by('deadline')
     countdown = dict()
@@ -61,12 +66,13 @@ def task_list(request):
     return render(request, "todolist/todolist.html", context)
 
 
-class SinglePostView(DetailView):
+class SinglePostView(LoginRequiredMixin, DetailView):
     model = Task
     template_name = "todolist/single_task.html"
     context_object_name = "task"
 
 
+@login_required()
 def add_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -78,6 +84,7 @@ def add_task(request):
     return render(request, "todolist/add_task.html", {"form": form})
 
 
+@login_required()
 def edit_task(request, slug):
     task = get_object_or_404(Task, slug=slug)
     if request.method == 'POST':
