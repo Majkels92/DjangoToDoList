@@ -22,11 +22,12 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+
+SECRET_KEY = getenv('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = getenv("IS_PRODUCTION", False)
-DEBUG = True
+DEBUG = getenv("IS_PRODUCTION", True)
 
 ALLOWED_HOSTS = ['ms-todolist.onrender.com', 'localhost', '127.0.0.1']
 
@@ -78,10 +79,8 @@ WSGI_APPLICATION = 'djangoToDoList.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-if not DEBUG:
-    DATABASES = {'default': dj_database_url.parse(
-                     "postgres://ms_todolistapp_db_user:lUvIleOJ5wcA891ElzTOu76j4TJFUcTq@dpg-ckskvog5vl2c73a9btug-a"
-                     ".frankfurt-postgres.render.com/ms_todolistapp_db")}
+if DEBUG is False:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
     DATABASES = {
         'default': {
