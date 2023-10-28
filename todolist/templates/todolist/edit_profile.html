@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'todolist/single_task.css' %}">
+    <link rel="stylesheet" href="{% static 'todolist/form_style.css' %}">
+{% endblock %}
+
+{% block title %}
+    Edit Profile
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="actions-mn">
+            <a href="{% url "profile" user.pk %}">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"></path>
+                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"></path>
+                    </svg>
+                    BACK
+                </button>
+            </a>
+        </div>
+        <div class="form-container">
+            <form method="post" class="form" action="{% url 'edit-profile' user.pk %}">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-names">
+                        <b>{{ field.label_tag }}</b>
+                    </div>
+                    <div class="form-fields">
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+                <button id="submit-form" type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

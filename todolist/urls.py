@@ -23,6 +23,7 @@ urlpatterns = [
     path('todolist', views.task_list, name="task-list"),
     path('todolist/task/<slug:slug>', views.SinglePostView.as_view(), name="single-task"),
     path('todolist/user/<int:pk>', views.UserProfileView.as_view(), name='profile'),
+    path('todolist/edit/<int:pk>', views.edit_profile, name="edit-profile"),
     path('todolist/delete/<int:task_id>', views.delete_task, name="delete-task"),
     path('todolist/add-task', views.add_task, name="add-task"),
     path('todolist/update/<slug:slug>', views.edit_task, name="update-task"),

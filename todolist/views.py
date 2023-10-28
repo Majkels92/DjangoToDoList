@@ -6,7 +6,7 @@ from django.urls import reverse, reverse_lazy
 from .models import Task, CustomUser
 from datetime import datetime, timezone
 from django.utils.timezone import localdate
-from .forms import TaskForm, CustomUserCreationForm
+from .forms import TaskForm, CustomUserCreationForm, CustomUserChangeForm
 from django.utils.text import slugify
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import views as auth_views
@@ -112,3 +112,17 @@ class UserProfileView(SinglePostView, LoginRequiredMixin):
     template_name = "todolist/profile.html"
     context_object_name = "user"
     model = CustomUser
+
+
+@login_required()
+def edit_profile(request, pk):
+    user = get_object_or_404(CustomUser, pk=pk)
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/todolist/user/" + str(user.pk))
+        return render(request, "todolist/edit_profile.html", {"form": form, "user": user})
+    else:
+        form = CustomUserChangeForm(instance=user)
+        return render(request, "todolist/edit_profile.html", {"form": form, "user": user})
