@@ -29,8 +29,9 @@
             </div>
             <br>
             {% for task in tasks %}
+                {% if task.is_done is False %}
                 <div class="single-task">
-                    <div id="title">{{ task.title.capitalize }}</div>
+                    <div id="title">{{ task.title.capitalize }} </div>
                     <div id="deadline">{{ task.deadline|date:'d.m.Y, H:i' }}</div>
                     <div id="countdown">
                     {% for key, value in time_left.items %}
@@ -52,7 +53,7 @@
                             Details
                         </button>
                         </a>
-                        <form action="{% url "delete-task" task.id %}" method="post">
+                        <form action="{% url "task-status-change" task.id %}" method="post">
                             {% csrf_token %}
                             <button id="done-btn">
                                 <svg id="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -78,6 +79,7 @@
                         </form>
                     </div>
                 </div>
+                {% endif %}
             {% endfor %}
     </div>
 {% endblock %}

@@ -23,6 +23,18 @@ def counting_time(deadline):
     return delta.days
 
 
+def change_status_of_task(request, task_id):
+    if request.method == "POST":
+        task = Task.objects.get(id=task_id)
+        if task.is_done is False:
+            task.is_done = True
+            task.save()
+        else:
+            task.is_done = False
+            task.save()
+    return HttpResponseRedirect(reverse_lazy("task-list"))
+
+
 def about(request):
     return render(request, "todolist/about.html")
 
@@ -126,3 +138,10 @@ def edit_profile(request, pk):
     else:
         form = CustomUserChangeForm(instance=user)
         return render(request, "todolist/edit_profile.html", {"form": form, "user": user})
+
+
+class ArchiveView(ListView, LoginRequiredMixin):
+    model = Task
+    context_object_name = "tasks"
+    template_name = "todolist/archive.html"
+

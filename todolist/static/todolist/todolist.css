@@ -71,6 +71,8 @@ br {
     background-color: #90b6ff;
     font-family: 'Dela Gothic One', cursive;
     cursor: pointer;
+    border: none;
+    margin: 2px;
 }
 
 #btn-icon {

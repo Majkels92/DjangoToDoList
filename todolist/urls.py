@@ -30,4 +30,6 @@ urlpatterns = [
     path('register', views.RegisterUserView.as_view(), name="register"),
     path('login', views.LoginUserView.as_view(), name="login"),
     path('logout', views.LogoutUserView.as_view(), name="logout"),
+    path('todolist/archive', views.ArchiveView.as_view(), name="archive"),
+    path('todolist/change-status/<int:task_id>', views.change_status_of_task, name="task-status-change"),
 ]
